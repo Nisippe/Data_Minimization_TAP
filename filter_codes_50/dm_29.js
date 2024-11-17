@@ -1,3 +1,4 @@
+//No Data Minimization problem
 const Monzo = {
 cardPurchase: {
     AmountInAccountCurrency: "123.45"

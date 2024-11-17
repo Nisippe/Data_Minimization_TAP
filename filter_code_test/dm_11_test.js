@@ -1,4 +1,3 @@
-// Mock of Twitter and Slack objects
 const Twitter = {
   newTweetByUser: {
     Text: "This is an example tweet about Struts"

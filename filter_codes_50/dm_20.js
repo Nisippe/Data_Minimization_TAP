@@ -1,7 +1,7 @@
-// Mocking the GlobalVideoData
+// Data minimization problem:
+// 1. The video description and uploader's information are being stored in `GlobalVideoData` and could be unnecessarily exposed or processed.
+// 2. The uploader's name is included in the tweet, which may not be necessary for the tweet's purpose.
 let GlobalVideoData = [];
-
-// Mocking the Youtube object
 const Youtube = {
   newPublicVideoFromSubscriptions: {
     Title: "Amazing Gameplay in Fantasy World",
@@ -10,8 +10,6 @@ const Youtube = {
     UploadDate: "November 05, 2024"
   }
 };
-
-// Mocking the Twitter object
 const Twitter = {
 postNewTweet: function(tweetContent) {
     console.log("Tweet posted: " + tweetContent);

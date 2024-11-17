@@ -1,13 +1,14 @@
-const Weather = { temp: "45" }; // Removed unnecessary property "tomorrowsWeather"
+const Weather = {
+       tomorrowsWeather: {}
+     };
 
-        const IfNotifications = {
-          sendNotification: {
-            skip: () => {
-              console.log("Notification skipped due to high temperature.");
-            },
-          },
-        };
+     const IfNotifications = {
+       sendNotification: {}
+     };
 
-        if (parseInt(Weather.temp) > 40) {
-          IfNotifications.sendNotification.skip();
-        }
+     Weather.tomorrowsWeather = { LowTempCelsius: "" }; // Anonymization reduced to retain necessary level
+
+     if (Weather.tomorrowsWeather.LowTempCelsius && parseInt(Weather.tomorrowsWeather.LowTempCelsius, 10) > 26.6) { // Temperature conversion and simplified comparison
+       IfNotifications.sendNotification.skip = () => console.log("Notification skipped due to high temperature.");
+       IfNotifications.sendNotification.skip();
+     }

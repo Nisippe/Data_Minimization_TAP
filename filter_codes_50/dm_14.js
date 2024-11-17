@@ -1,3 +1,6 @@
+// Data minimization problem:
+// 1. The full `EntryContent` is processed to extract the book ID and create a link, but the full content is not needed for this task. Only the book ID and relevant URL should be used.
+// 2. The `EntryTitle` is cleaned up but is still fully exposed and processed when only the book title might be necessary. 
 const Feed = {
 newFeedItemMatches: {
     EntryTitle: "'A Great Book Title'",

@@ -1,18 +1,18 @@
-// Mocking the Twitter object
+// Data minimization problem:
+// 1. The entire tweet content is being saved, which may contain unnecessary data (e.g., marketing text) that isn’t required for the task.
+// 2. The tweet's text is saved in its entirety, even though only specific information is necessary.
 const Twitter = {
 newTweetByUser: {
     Text: "Check out the new gaming console coming soon!"
 }
 };
 
-// Mocking the DataStorage object
 const DataStorage = {
 saveData: function(text) {
     console.log("Data saved: ", text);
 }
 };
 
-// Mocking the IfNotifications object
 const IfNotifications = {
 sendNotification: {
     skip: function() {

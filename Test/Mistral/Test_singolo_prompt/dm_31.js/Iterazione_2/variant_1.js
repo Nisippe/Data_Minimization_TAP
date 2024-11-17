@@ -1,24 +1,14 @@
 const Meta = {
-triggerTime: {
-    hour: function() {
-    return 15; // Adjust this to test different hours
-    }
-}
-};
+       triggerTime: {
+         hour: () => 15, // Arrow function for better performance and less context
+       },
+     };
 
-const GoogleSheets = {
-appendToGoogleSpreadsheet: {
-    skip: function() {
-    console.log("Skipped appending to Google Spreadsheet.");
-    }
-}
-};
+     const hour = Meta.triggerTime.hour();
 
-var hour = Meta.triggerTime.hour();
-
-if (hour % 24 > 0) {
-GoogleSheets.appendToGoogleSpreadsheet.skip();
-} else {
-console.log("Appending to Google Spreadsheet.");
-}
- // No changes needed // No changes needed
+     if (hour % 24 > 0) {
+       console.log("Skipped appending to Google Spreadsheet.");
+     } else {
+       // GoogleSheets.appendToGoogleSpreadsheet.skip(); // Remove this line if necessary
+       console.log("Appending to Google Spreadsheet.");
+     }

@@ -1,32 +1,21 @@
 const Meta = {
-currentUserTime: {
-    hour: function() {
-    return 23; 
-    }
-}
-};
+       currentUserTime: {
+         hour: () => 23, // Change to a getter function or constant if hour value is fixed
+       },
+     };
 
-const IfNotifications = {
-sendNotification: {
-    skip: function() {
-    console.log("Notification skipped due to late/early hour.");
-    }
-}
-};
+     const Notifications = {
+       send: {
+         skip: () => console.log("Notification skipped due to late/early hour."), // Combine functions if necessary
+       },
+     };
 
-const Email = {
-sendMeEmail: {
-    skip: function() {
-    console.log("Email skipped because it's within notification hours.");
-    }
-}
-};
+     const Email = {
+       send: {
+         skip: () => console.log("Email skipped because it's within notification hours."), // Combine functions if necessary
+       },
+     };
 
-var hour = Meta.currentUserTime.hour();
+     const hour = Meta.currentUserTime.hour();
 
-if (hour >= 22 || hour <= 8) {
-IfNotifications.sendNotification.skip();
-} else {
-Email.sendMeEmail.skip();
-}
- // No changes needed
+     hour >= 22 || hour <= 8 ? Notifications.send.skip() : Email.send.skip();

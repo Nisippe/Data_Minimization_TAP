@@ -1,15 +1,22 @@
 const Meta = {
-          currentUserTime: { hour: () => 6 },
-        };
+currentUserTime: {
+    hour: function() {
+    return 6;
+    }
+}
+};
 
-        const Clicksend = {
-          sendSms: {
-            skip: () => console.log("SMS skipped due to non-allowed hours."),
-          },
-        };
+const Clicksend = {
+sendSms: {
+    skip: function() {
+    console.log("SMS skipped due to non-allowed hours.");
+    }
+}
+};
 
-        const timeOfDay = Meta.currentUserTime.hour();
+var timeOfDay = Meta.currentUserTime.hour();
 
-        if (timeOfDay > 5 || timeOfDay < 9) {
-          Clicksend.sendSms.skip();
-        }
+if (timeOfDay > 5 || timeOfDay < 9) {
+Clicksend.sendSms.skip();
+}
+ // No changes needed // No changes needed

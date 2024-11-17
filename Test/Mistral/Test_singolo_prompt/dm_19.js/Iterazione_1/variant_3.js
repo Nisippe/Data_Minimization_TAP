@@ -1,28 +1,48 @@
-const Feed = { newFeedItem: {} }; // Remove unnecessary EntryImageUrl and EntryUrl properties
+// Mocking the Feed object with newFeedItem properties
+const Feed = {
+newFeedItem: {
+    EntryImageUrl: "http://example.com/image.jpg",
+    EntryUrl: "http://example.com/article"
+}
+};
 
-         const Dropbox = {
-           addFileFromUrl: {
-             skip: Function,
-             setFilename: Function
-           },
-           createTextFileDb: {
-             skip: Function,
-             setFilename: Function,
-             setBody: Function
-           }
-         };
+// Mocking the Dropbox object with methods for adding and creating files
+const Dropbox = {
+addFileFromUrl: {
+    skip: function() {
+    console.log("Skipped adding file from URL.");
+    },
+    setFilename: function(fileName) {
+    console.log(`Filename for file from URL set to: ${fileName}`);
+    }
+},
+createTextFileDb: {
+    skip: function() {
+    console.log("Skipped creating text file.");
+    },
+    setFilename: function(fileName) {
+    console.log(`Filename for text file set to: ${fileName}`);
+    },
+    setBody: function(body) {
+    console.log(`Body for text file set to: ${body}`);
+    }
+}
+};
 
-         const tempUrl = Feed.newFeedItem?.EntryUrl; // Use optional chaining instead of checking for null
-         const modifiedName = tempUrl ? tempUrl.toLowerCase().replace(/\s+/g, '-').replace(/[^\w\-]+/g, '') : null;
+var tempUrl = Feed.newFeedItem.EntryImageUrl;
+var sourceUrl = Feed.newFeedItem.EntryUrl;
 
-         if (!tempUrl) {
-           Dropbox.addFileFromUrl.skip();
-           Dropbox.createTextFileDb.skip();
-         } else {
-           const fileName = modifiedName || tempUrl;
-           const finalUrl = `[InternetShortcut]\r\nURL=${encodeURIComponent(sourceUrl)}\r\nIconIndex=0`; // Use encodeURIComponent for URL encoding
+var modifiedName = tempUrl ? tempUrl.toLowerCase().replace(/\s+/g, '-').replace(/[^\w\-]+/g, '') : null;
+var extraDetails = modifiedName ? modifiedName + "_processed" : null;
 
-           Dropbox.addFileFromUrl.setFilename(fileName);
-           Dropbox.createTextFileDb.setFilename(fileName + '.url');
-           Dropbox.createTextFileDb.setBody(finalUrl);
-         }
+if (!tempUrl) {
+Dropbox.addFileFromUrl.skip();
+Dropbox.createTextFileDb.skip();
+} else {
+var fileName = modifiedName || tempUrl;
+var finalUrl = '[InternetShortcut]\r\nURL=' + sourceUrl + '\r\nIconIndex=0';
+
+Dropbox.addFileFromUrl.setFilename(fileName);
+Dropbox.createTextFileDb.setFilename(fileName + '.url');
+Dropbox.createTextFileDb.setBody(finalUrl);
+}

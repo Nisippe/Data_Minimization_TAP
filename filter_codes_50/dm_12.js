@@ -1,4 +1,6 @@
-// Mock of Twitter and Email objects
+// Data minimization problem:
+// 1. The full tweet (`tweetText`) is processed to extract and validate price and change data, exposing unnecessary details (like coin information, price, and change) before checking if the conditions are met.
+// 2. The tweet's entire text is being checked and parsed, but only a portion of the data (price and change) is relevant for the decision-making, which could be minimized.
 const Twitter = {
     newTweetByUser: {
       Text: "#bitcoincash #bch Price: $5000 24hChg: 15% 24Vol"

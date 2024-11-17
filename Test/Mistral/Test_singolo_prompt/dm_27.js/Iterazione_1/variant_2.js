@@ -1,17 +1,17 @@
 const Trigger = {
-          deviceType: "Phone" // Minimized to only store necessary data
-         };
+DeviceName: "Phone - Samsung Galaxy"
+};
 
-         const AndroidDevice = {
-           setDeviceVolume: {
-             skip: function(message) {
-               console.log("Volume adjustment skipped:", message);
-             }
-           }
-         };
+const AndroidDevice = {
+setDeviceVolume: {
+    skip: function(message) {
+    console.log("Volume adjustment skipped:", message);
+    }
+}
+};
 
-         if (Trigger.deviceType !== "Gear") {
-           AndroidDevice.setDeviceVolume.skip("Déconnection non due à la montre");
-         } else {
-           console.log("Device connected: action allowed.");
-         }
+if (Trigger.DeviceName.indexOf("Gear") == -1) {
+AndroidDevice.setDeviceVolume.skip("Déconnection non due à la montre");
+} else {
+console.log("Device connected: action allowed.");
+}

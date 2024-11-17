@@ -1,11 +1,13 @@
-// Mocking Feed.newFeedItem.EntryTitle
+// Data minimization problem:
+// 1. The full entry title (`EntryTitle`) is concatenated into the `rss` string but is not necessary for the magnitude check.
+// 2. The magnitude-related logic uses the title to check for the occurrence of the magnitude, which could expose more data than needed.
+// 3. The `unusedVariable` stores a message that is never used, leading to unnecessary computation and variable allocation.
 var Feed = {
     newFeedItem: {
         EntryTitle: "Earthquake Alert: Magnitude 6.0 detected in the area."
     }
 };
 
-// Mocking Telegram.sendMessage.skip() functionality
 var Telegram = {
     sendMessage: {
         skip: function() {
@@ -46,5 +48,6 @@ while (tempMagnitude >= 1 && tempMagnitude <= 10) {
     }
 }
 
+//Why?
 var unusedVariable = magnitudeFound ? "Magnitude was found" : "No valid magnitude found";
 console.log(unusedVariable);

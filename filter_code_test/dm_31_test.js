@@ -1,7 +1,7 @@
 const Meta = {
 triggerTime: {
     hour: function() {
-    return 15; // Adjust this to test different hours
+    return 15;
     }
 }
 };

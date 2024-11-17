@@ -1,3 +1,5 @@
+// Data minimization problem:
+// 1. By concatenating all interests into the invite message, the system exposes more information than necessary, violating the principle of data minimization.
 const User = {
     getAge: function() {
         return 25;

@@ -1,12 +1,17 @@
-const WeatherData = { temperature: 35 }; // Removed location and humidity as they are not necessary for the if condition
+const WeatherData = {
+    temperature: 35,
+    location: "Tokyo",
+    humidity: 80,
+  };
+  
+const Sms = {
+  sendAlert: function() {
+    console.log("High temperature alert sent!");
+  }
+};
 
-        const Sms = {
-          sendAlert: function() {
-            console.log("High temperature alert sent!");
-          }
-        };
-
-        if (WeatherData.temperature > 30) {
-          console.log(`Temperature recorded: ${WeatherData.temperature}`);
-          Sms.sendAlert();
-        }
+if (WeatherData.temperature > 30) {
+  console.log(`Temperature recorded in ${WeatherData.location}: ${WeatherData.temperature}, humidity: ${WeatherData.humidity}`);
+  Sms.sendAlert();
+}
+ // No changes needed

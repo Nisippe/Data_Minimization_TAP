@@ -1,11 +1,12 @@
-// Mocking the Caavo object
+// Data minimization problem:
+// 1. The entire user query is stored in `localStorage` even though only a specific part of it (related to temperature setting) is relevant for the decision-making.
+// 2. Storing the full query may lead to unnecessary data retention and possible privacy concerns, as the full content of the query may not be needed for the action taken.
 const Caavo = {
 voiceSearch: {
     Text: "Can you set the temperature to 72 degrees?"
 }
 };
 
-// Mocking the Ecobee object
 const Ecobee = {
 holdHoldhours: {
     skip: function() {
@@ -14,7 +15,6 @@ holdHoldhours: {
 }
 };
 
-// Mocking localStorage functionality
 const localStorage = {
 store: {},
 setItem: function(key, value) {

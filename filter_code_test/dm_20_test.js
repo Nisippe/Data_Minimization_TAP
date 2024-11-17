@@ -1,14 +1,11 @@
-// Mocking the GlobalVideoData
 let GlobalVideoData = [];
 
-// Mocking the Youtube object
 const Youtube = {
 newPublicVideoFromSubscriptions: {
     Title: "Amazing Gameplay in Fantasy World",
 }
 };
 
-// Mocking the Twitter object
 const Twitter = {
 postNewTweet: function(tweetContent) {
     console.log("Tweet posted: " + tweetContent);

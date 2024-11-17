@@ -1,4 +1,3 @@
-// Mocking the GoogleCalendar object
 const GoogleCalendar = {
     eventFromSearchStarts: {
         Title: "Meeting with team",
@@ -8,7 +7,6 @@ const GoogleCalendar = {
     }
     };
     
-    // Mocking the Ecobee object
     const Ecobee = {
     climateNextTransition: {
         skip: function() {

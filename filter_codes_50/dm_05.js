@@ -1,3 +1,5 @@
+// Data minimization problem:
+// 1. Location and humidity are logged even though only the temperature is needed to trigger the alert.
 const WeatherData = {
     temperature: 35,
     location: "Tokyo",

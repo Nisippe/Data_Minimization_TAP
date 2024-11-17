@@ -1,4 +1,6 @@
-// Mocking WemoInsightSwitch object
+// Data minimization problem:
+// 1. The entire user location (`currentUserLocation`) and device information (`currentUserDeviceInfo`) are being stored, which are not necessary for logging the event details (the switch's name, event time, etc.).
+// 2. The timestamp and user location are captured with full detail (down to the exact date, time, and timezone), while only event details and relevant times should be logged.
 const WemoInsightSwitch = {
 attributeINSIGHTONN: {
     SwitchName: "Living Room Light",
@@ -6,7 +8,6 @@ attributeINSIGHTONN: {
 }
 };
 
-// Mocking Meta object
 const Meta = {
 currentUserTime: {
     format: function(formatString) {
@@ -22,7 +23,6 @@ currentUserLocation: "New York, USA",
 currentUserDeviceInfo: "iPhone 12 Pro Max"
 };
 
-// Mocking GoogleSheets object
 const GoogleSheets = {
 appendToGoogleSpreadsheet: {
     setFormattedRow: function(rowData) {

@@ -1,39 +1,35 @@
+// Mocking the GoogleCalendar object
 const GoogleCalendar = {
-           eventFromSearchStarts: {
-             title: "",
-             startTime: "",
-             endTime: "",
-             location: "",
-             collectData: function(data) {
-               if (this.title.toUpperCase() !== "WORK") {
-                 data.title = this.title;
-                 data.startTime = this.startTime;
-                 data.endTime = this.endTime;
-                 data.location = this.location;
-                 Ecobee.climateNextTransition.skip();
-                 this.collectData(data);
-               }
-             }
-           }
-         };
+eventFromSearchStarts: {
+    Title: "Meeting with team",
+    StartTime: "2024-11-05T10:00:00",
+    EndTime: "2024-11-05T11:00:00",
+    Location: "Conference Room 1",
+    Description: "Discussing project updates",
+    collectData: function(data) {
+    console.log("Event Data Collected: ", data);
+    }
+}
+};
 
-         const Ecobee = {
-           climateNextTransition: {
-             skip: function() {
-               console.log("Climate transition skipped.");
-             }
-           }
-         };
+// Mocking the Ecobee object
+const Ecobee = {
+climateNextTransition: {
+    skip: function() {
+    console.log("Climate transition skipped.");
+    }
+}
+};
 
-         GoogleCalendar.eventFromSearchStarts.collectData = function(data) {
-           if (this.title) {
-             data = {
-               title: this.title,
-               startTime: this.startTime,
-               endTime: this.endTime,
-               location: this.location
-             };
-             Ecobee.climateNextTransition.skip();
-             this.collectData(data);
-           }
-         };
+
+if (GoogleCalendar.eventFromSearchStarts.Title.toUpperCase() != "WORK") {
+Ecobee.climateNextTransition.skip();
+GoogleCalendar.eventFromSearchStarts.collectData({
+    eventTitle: GoogleCalendar.eventFromSearchStarts.Title,
+    eventStartTime: GoogleCalendar.eventFromSearchStarts.StartTime,
+    eventEndTime: GoogleCalendar.eventFromSearchStarts.EndTime,
+    eventLocation: GoogleCalendar.eventFromSearchStarts.Location,
+    eventDescription: GoogleCalendar.eventFromSearchStarts.Description
+});
+}
+ // No changes needed

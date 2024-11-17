@@ -1,11 +1,12 @@
-// Mocking the Twitter object
+// Data minimization problem:
+// 1. The entire user info from the tweet (`Twitter.newTweetByUser`) is being stored, including unnecessary data (e.g., tweet content) when only the URL is relevant.
+// 2. The URL extraction is valid, but storing the entire tweet content as "user info" exposes more data than necessary to perform the task.
 const Twitter = {
 newTweetByUser: {
     Text: "Check out our latest newsletter: https://example.com/newsletter1234 for updates!"
 }
 };
 
-// Mocking the Pocket object
 const Pocket = {
 readItLater: {
     setUrl: function(url) {

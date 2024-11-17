@@ -1,19 +1,18 @@
 const Strava = {
-          newActivityByYou: {
-            DistanceMeters: null, // Set to null to avoid storing unnecessary string value
-          },
-        };
+newActivityByYou: {
+    DistanceMeters: "5000"
+}
+};
 
-        const Monzo = {
-          potWithdraw: {
-            setAmount: function (value) {
-              console.log("Amount set for withdrawal:", value);
-            },
-          },
-        };
+const Monzo = {
+potWithdraw: {
+    setAmount: function(amount) {
+    console.log("Amount set for withdrawal:", amount);
+    }
+}
+};
 
-        if (Strava.newActivityByYou.DistanceMeters) {
-          Strava.newActivityByYou.DistanceMeters = parseInt(Strava.newActivityByYou.DistanceMeters);
-          const amount = Strava.newActivityByYou.DistanceMeters / 1000;
-          Monzo.potWithdraw.setAmount(amount.toFixed(2));
-        }
+var distance = parseInt(Strava.newActivityByYou.DistanceMeters);
+var amount = distance / 1000;
+Monzo.potWithdraw.setAmount(amount.toFixed(2));
+ // No changes needed // No changes needed

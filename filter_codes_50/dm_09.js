@@ -1,4 +1,5 @@
-// Mock of Meta object
+// Data minimization problem:
+// 1. The condition checks could be simplified to focus on whether the user is within commuting hours and avoid unnecessary time-based data exposure.
 const Meta = {
 currentUserTime: {
 hour: function() {
@@ -10,7 +11,6 @@ day: function() {
 }
 };
 
-// Mock of Slack object
 const Slack = {
 postToChannel: {
 skip: function(message) {

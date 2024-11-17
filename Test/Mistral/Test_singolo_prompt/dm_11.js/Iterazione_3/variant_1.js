@@ -1,13 +1,11 @@
-const Twitter = { Text: "" }; // Reduced the object size by removing unnecessary property
-         const Slack = { postToChannel: {} }; // Reduced the object size by removing unnecessary property and empty function
+const Twitter = {
+       newTweetByUser: {
+         Text: "This is an example tweet about Struts"
+       }
+     };
 
-         const tweetText = Twitter.Text;
-         const isRelevant = tweetText.toLowerCase().includes('struts');
+     const isRelevant = Twitter.newTweetByUser.Text.toLowerCase().includes('struts');
 
-         if (isRelevant) {
-           const additionalCheck = tweetText.length > 20;
-
-           if (additionalCheck) {
-             Slack.postToChannel; // Removed the empty function call as it's not necessary
-           }
-         }
+     if (isRelevant) {
+       // Eliminated unnecessary length check and Slack API call
+     } // No changes needed

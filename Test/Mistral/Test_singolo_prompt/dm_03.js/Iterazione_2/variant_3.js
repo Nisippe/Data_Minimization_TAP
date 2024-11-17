@@ -1,15 +1,21 @@
-const ReviewFeed = { rating: 5 }; // Keep only the necessary property
+const ReviewFeed = {
+       newReview: {
+         content: "This product is amazing! Highly recommend it.",
+         author: "Jane Doe",
+         rating: 5
+       }
+     };
 
-         const Slack = {
-           postToChannel: { send: () => {} }
-         };
-
-         if (ReviewFeed.rating > 4) {
-           const message = `Review by author: content`; // Replace 'author' and 'content' with actual variables if known
-           console.log(`Processing message for sending: ${message}`);
-           Slack.postToChannel.send = () => console.log("Positive review posted to Slack!");
-           Slack.postToChannel.send();
-         } else {
-           Slack.postToChannel.skip = () => console.log("Positive review skipped.");
-           Slack.postToChannel.skip();
+     const Slack = {
+       postToChannel: {
+         send: function() {
+           console.log("Positive review posted to Slack!");
          }
+       }
+     };
+
+     if (ReviewFeed.newReview.rating > 4) {
+       const message = `Review by ${ReviewFeed.newReview.author}: ${ReviewFeed.newReview.content}`;
+       console.log(`Processing message for sending: ${message}`);
+       Slack.postToChannel.send();
+     }

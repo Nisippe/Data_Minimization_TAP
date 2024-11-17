@@ -1,4 +1,3 @@
-// Mocking the Meta object
 const Meta = {
 currentUserTime: {
     hour: function() {
@@ -7,7 +6,6 @@ currentUserTime: {
 }
 };
 
-// Mocking AndroidMessages
 const AndroidMessages = {
 sendAMessage: {
     skip: function(message) {

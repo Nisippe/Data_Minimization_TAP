@@ -1,15 +1,17 @@
 const Weather = {
-          tomorrowsWeather: { temp: "45" },
-        };
+       tomorrowsWeatherAtTime: {
+         LowTempFahrenheit: ""
+       }
+     };
 
-        const IfNotifications = {
-          sendNotification: {
-            skip: () => {
-              console.log("Notification skipped due to high temperature.");
-            },
-          },
-        };
+     const IfNotifications = {
+       sendNotification: {
+         skip: function() {
+           console.log("Notification skipped due to high temperature.");
+         }
+       }
+     };
 
-        if (parseInt(Weather.tomorrowsWeather.temp) > 40) {
-          IfNotifications.sendNotification.skip();
-        }
+     if (Weather.tomorrowsWeatherAtTime.LowTempFahrenheit && parseInt(Weather.tomorrowsWeatherAtTime.LowTempFahrenheit) > 40) {
+       IfNotifications.sendNotification.skip();
+     }

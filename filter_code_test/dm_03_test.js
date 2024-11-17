@@ -16,7 +16,6 @@ const Slack = {
   }
 };
 
-// Minimized logic
 if (ReviewFeed.newReview.rating > 4) {
   Slack.postToChannel.send();
 } else {

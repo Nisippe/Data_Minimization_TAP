@@ -1,22 +1,11 @@
-const Feed = {
-          newFeedItemMatches: {
-            title: "'A Great Book Title'",
-            link: "/book/show/12345"
-          }
-         };
+const Feed = { title: "'A Great Book Title'" };
 
-         const Todoist = {
-          createTask: {
-            setTaskContent: function(content) {
-              console.log("Task Content: " + content);
-            },
-            setNote: function(note) {
-              console.log("Note: " + note);
-            }
-          }
-         };
+     const Todoist = {
+       createTask: {
+         setTaskContent: function(title) {
+           console.log("Task Content: " + title);
+         }
+       }
+     };
 
-         const cleanTitle = Feed.newFeedItemMatches.title.slice(1, -1);
-         Todoist.createTask.setTaskContent(cleanTitle);
-         const baseUrl = "https://www.goodreads.com/buy_buttons/12/follow?book_id=";
-         Todoist.createTask.setNote(Feed.newFeedItemMatches.link); // No changes needed
+     Todoist.createTask.setTaskContent(Feed.title);

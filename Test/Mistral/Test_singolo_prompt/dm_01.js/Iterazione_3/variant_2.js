@@ -1,21 +1,9 @@
 const GoogleCalendar = {
-          newEventAdded: { starts: "9:00 AM", ends: "10:00 AM" },
-          addDetailedEvent: {
-            skip: () => console.log("Event skipped."),
-            setDescription: (description) => console.log(`Description set: ${description}`),
-            setAllDay: (isAllDay) => console.log(`All-day set: ${isAllDay}`),
-            setStartTime: (startTime) => console.log(`Start time set: ${startTime}`),
-            setEndTime: (endTime) => console.log(`End time set: ${endTime}`)
-          }
-        };
+       addDetailedEvent: {
+         setDescription: (starts, ends) => console.log(`Description set: In the office from ${starts} to ${ends}`)
+       }
+     };
 
-        const address = "[some street address]";
-
-        if (GoogleCalendar.newEventAdded.starts && GoogleCalendar.newEventAdded.ends && address.indexOf(GoogleCalendar.newEventAdded.starts.split(" ")[0]) >= 0) {
-          GoogleCalendar.addDetailedEvent.setDescription(`In the office from ${GoogleCalendar.newEventAdded.starts} to ${GoogleCalendar.newEventAdded.ends}`);
-          GoogleCalendar.addDetailedEvent.setAllDay("true");
-          GoogleCalendar.addDetailedEvent.setStartTime(GoogleCalendar.newEventAdded.starts);
-          GoogleCalendar.addDetailedEvent.setEndTime(GoogleCalendar.newEventAdded.ends);
-        } else {
-          GoogleCalendar.addDetailedEvent.skip();
-        }
+     if (GoogleCalendar.newEventAdded && (GoogleCalendar.newEventAdded.starts.length > 0 && GoogleCalendar.newEventAdded.ends.length > 0)) {
+       GoogleCalendar.addDetailedEvent.setDescription(GoogleCalendar.newEventAdded.starts, GoogleCalendar.newEventAdded.ends);
+     }

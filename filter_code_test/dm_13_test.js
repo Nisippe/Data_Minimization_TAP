@@ -1,4 +1,3 @@
-// Mock of Meta and LinkMyPet objects
 const Meta = {
   triggerTime: {
     minute: function() {

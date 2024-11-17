@@ -1,3 +1,6 @@
+// Data minimization problem:
+// 1. The email body and attachment details are not necessary for checking if the email should be sent, leading to unnecessary data exposure.
+// 2. The body and attachments could be excluded from the condition, as only the sender, subject, and attachments count seem relevant for the decision.
 const Email = {
     notification: {
       sender: "example@example.com",

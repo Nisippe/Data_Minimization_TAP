@@ -1,4 +1,3 @@
-// Mock of Evernote object
 const Evernote = {
   newNoteInNotebook: {
     Tags: "Journal"
@@ -13,7 +12,6 @@ const Evernote = {
   }
 };
 
-// Mock of Meta object
 const Meta = {
   currentUserTime: {
     format: function(format) {

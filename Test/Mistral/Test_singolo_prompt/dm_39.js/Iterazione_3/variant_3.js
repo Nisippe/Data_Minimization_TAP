@@ -1,13 +1,10 @@
-const Netatmo = { rainTodayAmount: 3.5 };
+const Netatmo = {
+       rainTodayAmount: {
+         MeasuredRainfallMM: "" // Remove unnecessary data attribute
+       }
+     };
 
-         const Netro = {
-           noWater: {
-             skip: () => {
-               console.log("Skipping water-related action due to insufficient rainfall.");
-             }
-           }
-         };
-
-         if (Netatmo.rainTodayAmount < 5) {
-           Netro.noWater.skip();
-         }
+     if (parseFloat(Netatmo.rainTodayAmount.MeasuredRainfallMM) < 5) {
+       console.log("Skipping water-related action due to insufficient rainfall.");
+       // Remove unnecessary Netro object and its skip function
+     }

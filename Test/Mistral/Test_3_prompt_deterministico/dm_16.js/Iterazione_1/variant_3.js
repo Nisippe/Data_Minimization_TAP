@@ -19,7 +19,6 @@ reportWeather: {
 }
 };
 
-// Using slightly less obvious variable names
 var report = Netro.reportWeather;
 var rainAmountToday = Netatmo.rainTodayAmount.MeasuredRainfallMM;
 var rainfallDate = Netatmo.rainTodayAmount.MeasuredAt;

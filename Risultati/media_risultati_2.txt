@@ -1,0 +1,4 @@
+nome_file_test,error_rate_1,error_rate_2
+Mistral,0.2,0.1
+LLAMA,0.18154761904761904,0.04666666666666666
+Gemma,0.17822222222222223,0.038

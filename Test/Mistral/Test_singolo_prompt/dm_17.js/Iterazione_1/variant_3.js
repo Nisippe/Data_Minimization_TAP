@@ -1,28 +1,20 @@
 const Meta = {
-    getUserLocation: function() {
-        return "New York";
-    },
-    getUserPreferences: function() {
-        return {
+        getUserLocation: () => "New York",
+        getUserPreferences: () => ({
             likesNotifications: true,
             emailUpdates: true,
             smsUpdates: false
-        };
+        })
+    };
+
+    const NotificationSystem = {
+        sendNotification: message => console.log("Notification sent: " + message)
+    };
+
+    const userPreferences = Meta.getUserPreferences();
+    const message = "Hello, we have an update for you!";
+    const timestamp = new Date().toISOString();
+
+    if (userPreferences.likesNotifications) {
+        NotificationSystem.sendNotification(message + " Time: " + timestamp);
     }
-};
-
-const NotificationSystem = {
-    sendNotification: function(message) {
-        console.log("Notification sent: " + message);
-    }
-};
-
-var userLocation = Meta.getUserLocation();
-var userPreferences = Meta.getUserPreferences();
-var message = "Hello, we have an update for you!";
-var timestamp = new Date().toISOString();
-
-if (userPreferences.likesNotifications && userLocation === "New York") {
-    NotificationSystem.sendNotification(message + " Time: " + timestamp);
-}
- // No changes needed

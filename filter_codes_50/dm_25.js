@@ -1,4 +1,6 @@
-// Mocking the GoogleCalendar object
+// Data minimization problem:
+// 1. The entire event data is being collected, even though only specific pieces of data might be necessary for the specific task.
+// 2. Collecting unnecessary data violates the data minimization principle as this information may not be relevant for the intended purpose .
 const GoogleCalendar = {
 eventFromSearchStarts: {
     Title: "Meeting with team",
@@ -12,7 +14,6 @@ eventFromSearchStarts: {
 }
 };
 
-// Mocking the Ecobee object
 const Ecobee = {
 climateNextTransition: {
     skip: function() {

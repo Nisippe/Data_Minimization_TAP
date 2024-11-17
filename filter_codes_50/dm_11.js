@@ -1,4 +1,6 @@
-// Mock of Twitter and Slack objects
+// Data minimization problem:
+// 1. The full tweet text (`tweetText`) is being processed and checked, potentially exposing unnecessary content before deciding if it meets the relevance criteria.
+// 2. The length check (`tweetText.length > 20`) is redundant and can lead to unnecessary exposure of part of the tweet, as only the presence of "struts" is needed to make the decision.
 const Twitter = {
     newTweetByUser: {
       Text: "This is an example tweet about Struts"

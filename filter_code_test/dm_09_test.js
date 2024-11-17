@@ -1,16 +1,14 @@
-// Mock of Meta object
 const Meta = {
 currentUserTime: {
     hour: function() {
-    return new Date().getHours(); // Returns current hour
+    return new Date().getHours(); 
     },
     day: function() {
-    return new Date().getDay(); // Returns current day (0-6)
+    return new Date().getDay();
     }
 }
 };
 
-// Mock of Slack object
 const Slack = {
 postToChannel: {
     skip: function(message) {

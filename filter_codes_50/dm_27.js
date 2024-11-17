@@ -1,3 +1,4 @@
+//No Data Minimization problem
 const Trigger = {
 DeviceName: "Phone - Samsung Galaxy"
 };

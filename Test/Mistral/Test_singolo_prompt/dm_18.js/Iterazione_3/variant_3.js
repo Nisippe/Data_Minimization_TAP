@@ -1,17 +1,23 @@
 const User = {
-            getAge: () => 25,
-            getUserInterests: () => ["sports", "music"] // return only first two interests
-         };
+    getAge: function() {
+        return 25;
+    },
+    getUserInterests: function() {
+        return ["sports", "music", "technology", "travel"];
+    }
+};
 
-         const EventSystem = {
-            sendEventInvite: function(message, interest) {
-                console.log("Event invite sent for: " + message + " " + interest + ". Event: Join us for a sports event!");
-            }
-         };
+const EventSystem = {
+    sendEventInvite: function(event) {
+        console.log("Event invite sent for: " + event);
+    }
+};
 
-         const [firstInterest, _] = User.getUserInterests();
-         const eventDetails = "Join us for a sports event!";
+var userAge = User.getAge();
+var userInterests = User.getUserInterests();
+var eventDetails = "Join us for a sports event!";
+var inviteMessage = "Hello! You might be interested in this event based on your interests in ";
 
-         if (User.getAge() >= 18 && User.getUserInterests().includes("sports")) {
-             EventSystem.sendEventInvite("Hello! You might be interested in this event based on your interest in ", firstInterest);
-         }
+if (userAge >= 18 && userInterests.includes("sports")) {
+    EventSystem.sendEventInvite(inviteMessage + userInterests.join(", ") + ". Event: " + eventDetails);
+}

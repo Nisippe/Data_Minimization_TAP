@@ -1,19 +1,22 @@
 const Strava = {
-          newActivityByYou: {
-            DistanceMeters: null, // Set to null to avoid storing unnecessary string value
-          },
-        };
+       newActivityByYou: {
+         DistanceMeters: "" // Remove hardcoded value, make it dynamic
+       }
+     };
 
-        const Monzo = {
-          potWithdraw: {
-            setAmount: function (value) {
-              console.log("Amount set for withdrawal:", value);
-            },
-          },
-        };
+     const Monzo = {
+       potWithdraw: {
+         setAmount: function(amount) {
+           console.log("Amount set for withdrawal:", amount);
+         }
+       }
+     };
 
-        if (Strava.newActivityByYou.DistanceMeters) {
-          Strava.newActivityByYou.DistanceMeters = parseInt(Strava.newActivityByYou.DistanceMeters);
-          const amount = Strava.newActivityByYou.DistanceMeters / 1000;
-          Monzo.potWithdraw.setAmount(amount.toFixed(2));
-        } // No changes needed
+     function getDistanceInKilometers(distanceMeters) {
+       return distanceMeters / 1000;
+     }
+
+     Strava.newActivityByYou.DistanceMeters = ""; // Make it dynamic
+     var distance = parseInt(Strava.newActivityByYou.DistanceMeters);
+     var amount = getDistanceInKilometers(distance);
+     Monzo.potWithdraw.setAmount(amount.toFixed(2));

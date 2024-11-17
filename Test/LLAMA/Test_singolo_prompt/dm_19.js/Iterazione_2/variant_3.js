@@ -1,0 +1,36 @@
+const Feed = {
+newFeedItem: {
+    url: "http://example.com/article"
+}
+};
+
+const Dropbox = {
+addFileFromUrl: {
+    setFilename: function(fileName) {
+    console.log(`Filename for file from URL set to: ${fileName}`);
+    }
+},
+createTextFileDb: {
+    setFilename: function(fileName) {
+    console.log(`Filename for text file set to: ${fileName}`);
+    },
+    setBody: function(body) {
+    console.log(`Body for text file set to: ${body}`);
+    }
+}
+};
+
+var sourceUrl = Feed.newFeedItem.url;
+
+if (!sourceUrl) {
+Dropbox.addFileFromUrl.setFilename('');
+Dropbox.createTextFileDb.setFilename('');
+Dropbox.createTextFileDb.setBody('');
+} else {
+var fileName = sourceUrl.toLowerCase().replace(/\s+/g, '-').replace(/[^\w\-]+/g, '');
+var finalUrl = '[InternetShortcut]\r\nURL=' + sourceUrl + '\r\nIconIndex=0';
+
+Dropbox.addFileFromUrl.setFilename(fileName);
+Dropbox.createTextFileDb.setFilename(fileName + '.url');
+Dropbox.createTextFileDb.setBody(finalUrl);
+}

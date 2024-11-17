@@ -1,16 +1,17 @@
 const CommentsFeed = {
-           comments: [
-             { author: "User1", content: "This is a great post!" },
-             { author: "User2", content: "I disagree" } // Remove unnecessary 'Date' property
-           ]
-         };
+    comments: [
+      { Author: "User1", Content: "This is a great post!", Date: "2024-11-01", Category: "Feedback" },
+      { Author: "User2", Content: "I disagree with this.", Date: "2024-11-01", Category: "Critique" }
+    ]
+  };
+  
+const Notifications = {
+  sendNotification: function(message) {
+    console.log("Notification sent: " + message);
+  }
+};
 
-         const Notifications = {
-           sendNotification: function(message) {
-             console.log(message);
-           }
-         };
-
-         CommentsFeed.comments.forEach(comment => {
-           Notifications.sendNotification(`New comment by ${comment.author}: ${comment.content}`);
-         });
+CommentsFeed.comments.forEach(comment => {
+  Notifications.sendNotification(`New comment by ${comment.Author} on ${comment.Date}: ${comment.Content} (Category: ${comment.Category})`);
+});
+   // No changes needed // No changes needed // No changes needed

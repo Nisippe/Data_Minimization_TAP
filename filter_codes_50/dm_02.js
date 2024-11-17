@@ -1,3 +1,8 @@
+// Data minimization problem:
+// 1. Hardcoded checks on date, author, and category expose unnecessary data when skipping posts.
+// 2. Generating author initials creates unnecessary data that isn't used in the final logic.
+// 3. Redundant "News" category check could be simplified to avoid unnecessary processing.
+
 const Feed = {
     newFeedItem: {
       EntryContent: "This is a sample entry from 東京",

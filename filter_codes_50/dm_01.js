@@ -1,3 +1,5 @@
+// Data minimization problem:
+// Hardcoded location check exposes a specific address unnecessarily.
 const GoogleCalendar = {
   newEventAdded: {
       Where: "[some street address]", 

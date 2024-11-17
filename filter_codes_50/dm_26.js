@@ -1,4 +1,4 @@
-// Mocking the Meta object
+//No Data Minimization problem
 const Meta = {
 currentUserTime: {
     hour: function() {
@@ -7,7 +7,6 @@ currentUserTime: {
 }
 };
 
-// Mocking AndroidMessages
 const AndroidMessages = {
 sendAMessage: {
     skip: function(message) {

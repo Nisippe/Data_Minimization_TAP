@@ -1,18 +1,11 @@
 const Twitter = {
-           newTweetByUser: { Text: "" }
-         };
+       newTweetByUser: {
+         Text: "This is an example tweet about Struts"
+       }
+     };
 
-         const Slack = {
-           postToChannel: { skip: () => {} }
-         };
+     const isRelevant = Twitter.newTweetByUser.Text.toLowerCase().includes('struts');
 
-         const tweetText = Twitter.newTweetByUser.Text;
-         const isRelevant = tweetText.toLowerCase().includes('struts');
-
-         if (isRelevant) {
-           const additionalCheck = tweetText.length > 20;
-
-           if (additionalCheck) {
-             Slack.postToChannel.skip;
-           }
-         }
+     if (isRelevant) {
+       // Eliminated unnecessary length check and Slack API call
+     }

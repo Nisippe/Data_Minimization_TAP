@@ -1,11 +1,9 @@
-// Mocking Feed.newFeedItem.EntryTitle
 var Feed = {
 newFeedItem: {
     EntryTitle: "Earthquake Alert: Magnitude 6.0 detected in the area."
 }
 };
 
-// Mocking Telegram.sendMessage.skip() functionality
 var Telegram = {
 sendMessage: {
     skip: function() {

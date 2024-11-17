@@ -1,13 +1,19 @@
-const ReviewFeed = { rating: 5 }; // Keep only the rating property
+const ReviewFeed = {
+       newReview: {
+         rating: 5
+       }
+     };
 
-         const Slack = {
-           postToChannel: {}
-         };
-
-         if (ReviewFeed.rating > 4) {
-           const message = "Positive review"; // Remove unnecessary placeholders
-           console.log(`Processing message for sending: ${message}`);
-           Slack.postToChannel = { send: () => console.log("Review posted to Slack!") };
-         } else {
-           Slack.postToChannel = { skip: () => console.log("Review skipped.") };
+     const Slack = {
+       postToChannel: {
+         send: function() {
+           console.log("Positive review posted to Slack!");
          }
+       }
+     };
+
+     if (ReviewFeed.newReview.rating > 4) {
+       const message = `Review by ${ReviewFeed.newReview.author}: `; // Remove unnecessary content from message
+       console.log(`Processing message for sending: ${message}`);
+       Slack.postToChannel.send();
+     }

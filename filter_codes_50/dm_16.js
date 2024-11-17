@@ -1,3 +1,7 @@
+// Data minimization problem:
+// 1. The full `MeasuredAt` timestamp is used to set the date, but only the relevant date portion (without the time) is necessary to report rainfall data.
+// 2. The entire `MeasuredAt` timestamp is being processed and exposed when only the specific date is needed for the report.
+// 3. The code also includes a hardcoded value for rain probability (`rainChance`) which might be unnecessary or irrelevant to the actual rainfall amount, further exposing data.
 const Netatmo = {
 rainTodayAmount: {
     MeasuredAt: new Date(),
@@ -19,7 +23,6 @@ reportWeather: {
 }
 };
 
-// Using slightly less obvious variable names
 var report = Netro.reportWeather;
 var rainAmountToday = Netatmo.rainTodayAmount.MeasuredRainfallMM;
 var rainfallDate = Netatmo.rainTodayAmount.MeasuredAt;

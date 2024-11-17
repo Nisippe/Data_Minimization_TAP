@@ -1,39 +1,18 @@
 const GoogleCalendar = {
-           eventFromSearchStarts: {
-             title: "",
-             startTime: "",
-             endTime: "",
-             location: "",
-             collectData: function(data) {
-               if (this.title.toUpperCase() !== "WORK") {
-                 data.title = this.title;
-                 data.startTime = this.startTime;
-                 data.endTime = this.endTime;
-                 data.location = this.location;
-                 Ecobee.climateNextTransition.skip();
-                 this.collectData(data);
-               }
-             }
-           }
-         };
+       eventFromSearchStarts: {
+         Title: "",
+         StartTime: "",
+         collectData: function(data) {
+           if (this.Title.toUpperCase() === "WORK") return; // Reduce anonymization if necessary
+           data = { eventTitle: this.Title, eventStartTime: this.StartTime }; // Eliminate unnecessary attributes
+           console.log("Event Data Collected: ", data);
+         }
+       }
+     };
 
-         const Ecobee = {
-           climateNextTransition: {
-             skip: function() {
-               console.log("Climate transition skipped.");
-             }
-           }
-         };
+     // Mocking the Ecobee object
+     const Ecobee = {
+       climateNextTransition: {}
+     };
 
-         GoogleCalendar.eventFromSearchStarts.collectData = function(data) {
-           if (this.title) {
-             data = {
-               title: this.title,
-               startTime: this.startTime,
-               endTime: this.endTime,
-               location: this.location
-             };
-             Ecobee.climateNextTransition.skip();
-             this.collectData(data);
-           }
-         };
+     GoogleCalendar.eventFromSearchStarts.collectData.bind(GoogleCalendar.eventFromSearchStarts)(); // Remove unnecessary function call to skip()

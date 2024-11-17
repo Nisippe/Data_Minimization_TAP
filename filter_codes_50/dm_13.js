@@ -1,4 +1,6 @@
-// Mock of Meta and LinkMyPet objects
+// Data minimization problem:
+// 1. The full date and time (`CreatedAt` and `new Date().toISOString()`) are used to extract the day and minute information, which exposes more detailed information than needed to make the decision.
+// 2. The full battery level and creation date are being checked even though only specific thresholds (battery < 100, or creation date mismatch) are relevant for the decision.
 const Meta = {
 triggerTime: {
     minute: function() {
@@ -31,8 +33,7 @@ var dayCheck = Meta.triggerTime.day();
 var creationDate = new Date(LinkMyPet.collarInfo.CreatedAt).getDay();
 
 var batteryCheck = parseInt(LinkMyPet.collarInfo.Battery, 10);
-var randomFactor = Math.random() < 0.5 ? 1 : 0;
-var adjustedMinute = timeCheck + randomFactor;
+var adjustedMinute = timeCheck;
 
 if ((adjustedMinute % 30 > 0 && batteryCheck < 100) || (creationDate !== dayCheck)) {
 Sms.sendMeText.skip();

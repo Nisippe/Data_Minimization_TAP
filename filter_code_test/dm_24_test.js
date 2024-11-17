@@ -1,4 +1,3 @@
-// Mocking the Twitter object
 const Twitter = {
 newTweetByUser: {
     Text: "Check out the new gaming console coming soon!"
@@ -6,7 +5,6 @@ newTweetByUser: {
 };
 
 
-// Mocking the IfNotifications object
 const IfNotifications = {
 sendNotification: {
     skip: function() {

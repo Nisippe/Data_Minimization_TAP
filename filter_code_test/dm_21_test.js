@@ -1,11 +1,9 @@
-// Mocking the Caavo object
 const Caavo = {
     voiceSearch: {
         Text: "Can you set the temperature to 72 degrees?"
     }
     };
     
-    // Mocking the Ecobee object
     const Ecobee = {
     holdHoldhours: {
         skip: function() {

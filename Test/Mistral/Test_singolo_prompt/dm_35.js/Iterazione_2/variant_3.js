@@ -1,24 +1,26 @@
-const Ecobee = { motionDetected: {} };
-         const Aquanta = { cancelAway: {}, away: {} };
+const Ecobee = {
+       motionDetected: {
+         EventType: "",
+       }
+     };
 
-         Ecobee.motionDetected = { EventType: "" };
-
-         if (navigator.online) { // only check online status if necessary
-           fetch('event-data') // replace with actual API call
-             .then(response => response.json())
-             .then(data => {
-               Ecobee.motionDetected.EventType = data.EventType.toLowerCase();
-               processEvent();
-             })
-             .catch(error => console.error('Error:', error));
+     const Aquanta = {
+       cancelAway: {
+         skip: function() {
+           console.log("Cancel Away skipped.");
          }
-
-         function processEvent() {
-           const EventType = Ecobee.motionDetected.EventType;
-
-           if (EventType.indexOf("away") != -1) {
-             Aquanta.cancelAway.skip();
-           } else if (EventType.indexOf("home") != -1) {
-             Aquanta.away.skip();
-           }
+       },
+       away: {
+         skip: function() {
+           console.log("Away action skipped.");
          }
+       }
+     };
+
+     Ecobee.motionDetected.EventType = "Home".toLowerCase();
+
+     if (Ecobee.motionDetected.EventType === "away") {
+       Aquanta.cancelAway.skip();
+     } else if (Ecobee.motionDetected.EventType === "home") {
+       Aquanta.away.skip();
+     }

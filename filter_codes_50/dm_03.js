@@ -1,3 +1,6 @@
+// Data minimization problem:
+// 1. The author and full review content are exposed in the message even though only the rating is used to determine posting.
+// 2. Including the author and the date in the message may overexpose personal data unnecessarily for a simple "positive review" notification.
 const ReviewFeed = {
     newReview: {
         content: "This product is amazing! Highly recommend it.",

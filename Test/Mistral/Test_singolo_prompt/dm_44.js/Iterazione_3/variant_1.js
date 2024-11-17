@@ -1,21 +1,12 @@
 const Meta = {
-currentUserTime: {
-    hour: () => 10
-}
-};
+       currentUserTime: { hour: () => Math.floor(new Date().getHours()) }
+     };
 
-const VoipCalls = {
-callMyDevice: {
-    skip: (hour) => console.log("Call skipped due to hour:", hour),
-    setMessage: (message) => console.log("Message set:", message)
-}
-};
+     const VoipCalls = {
+       callMyDevice: {
+         skip: (hour) => hour > 8 && hour < 21 ? console.log("Call skipped due to hour: ", hour) : VoipCalls.messageSetter(),
+         messageSetter: () => console.log("Message set: motion detected!")
+       }
+     };
 
-var hour = Meta.currentUserTime.hour();
-
-if (hour > 8 && hour < 21) {
-VoipCalls.callMyDevice.skip(hour.toString());
-} else {
-VoipCalls.callMyDevice.setMessage("motion detected!");
-}
- // No changes needed // No changes needed // No changes needed
+     VoipCalls.callMyDevice.skip(Meta.currentUserTime.hour());

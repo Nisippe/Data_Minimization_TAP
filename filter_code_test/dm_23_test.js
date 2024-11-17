@@ -1,4 +1,3 @@
-// Mocking WemoInsightSwitch object
 const WemoInsightSwitch = {
     attributeINSIGHTONN: {
         SwitchName: "Living Room Light",
@@ -6,7 +5,6 @@ const WemoInsightSwitch = {
     }
     };
     
-    // Mocking Meta object
     const Meta = {
     currentUserTime: {
         format: function(formatString) {
@@ -22,7 +20,6 @@ const WemoInsightSwitch = {
     currentUserDeviceInfo: "iPhone 12 Pro Max"
     };
     
-    // Mocking GoogleSheets object
     const GoogleSheets = {
     appendToGoogleSpreadsheet: {
         setFormattedRow: function(rowData) {

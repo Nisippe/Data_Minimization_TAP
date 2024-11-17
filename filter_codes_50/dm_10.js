@@ -1,4 +1,7 @@
-// Mock of Evernote object
+// Data minimization problem:
+// 1. The `timeFormatted` and `additionalModifier` variables include more date information than necessary to create a title.
+// 2. The title format, combining `timeFormatted` and `additionalModifier`, exposes unnecessary details about the date when only a simple identifier might suffice.
+// 3. The random selection of tags includes unnecessary variability, potentially exposing more data than needed for the note.
 const Evernote = {
   newNoteInNotebook: {
     Tags: "Journal"
@@ -13,7 +16,6 @@ const Evernote = {
   }
 };
 
-// Mock of Meta object
 const Meta = {
   currentUserTime: {
     format: function(format) {
